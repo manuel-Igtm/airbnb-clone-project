@@ -245,6 +245,53 @@ Bookings	Fake reservations, overbooking.	Rate limiting, input validation.
 Reviews	Spam, fake ratings.	Rate limiting, user verification.
 Security is a non-negotiable priority to protect users, maintain trust, and comply with regulations (e.g., GDPR). Each measure addresses specific threats while ensuring seamless functionality.
 
+CI/CD Pipeline
+What is CI/CD?
+CI (Continuous Integration) and CD (Continuous Deployment/Delivery) are automated processes that streamline code integration, testing, and deployment.
+
+CI: Automatically builds and tests code changes when merged into the main branch.
+
+CD: Automatically deploys validated code to staging/production environments.
+
+Why CI/CD is Important for This Project
+Faster Development Cycles
+
+Automates repetitive tasks (testing, deployment), reducing manual errors and speeding up releases.
+
+Early Bug Detection
+
+Runs tests (unit, integration) on every commit, catching issues before they reach production.
+
+Reliable Deployments
+
+Ensures only tested, stable code is deployed, minimizing downtime.
+
+Scalability
+
+Simplifies scaling the backend as user demand grows (e.g., auto-deploying to cloud servers).
+
+Tools Used
+GitHub Actions (CI/CD workflows)
+
+Docker (Containerization for consistent environments)
+
+AWS CodeDeploy / Heroku (Deployment automation)
+
+SonarCloud (Code quality and security scanning)
+
+Postman/Newman (API test automation)
+
+Pipeline Workflow
+Code Push → Triggers GitHub Actions.
+
+Build & Test → Runs in Docker containers (unit/integration tests).
+
+Security Scan → Checks for vulnerabilities (SonarCloud).
+
+Deploy → Auto-deploys to staging; manual approval for production.
+
+CI/CD ensures the Airbnb Clone backend remains stable, secure, and up-to-date with minimal manual intervention. 
+
 📈 Future Enhancements  
 - Real-time notifications (WebSockets)  
 - Advanced search & filtering (Elasticsearch)  
