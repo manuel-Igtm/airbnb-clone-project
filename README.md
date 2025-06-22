@@ -188,6 +188,63 @@ Implements Redis caching to reduce database load.
 
 Each feature is designed to work seamlessly together, delivering a smooth experience for both guests and hosts.
 
+API Security
+Securing the backend APIs is critical to protect sensitive user data, prevent fraud, and ensure system integrity. Below are the key security measures implemented in the Airbnb Clone project and their importance.
+
+Key Security Measures
+1. Authentication (JWT/OAuth2)
+Implementation: Uses JSON Web Tokens (JWT) for stateless user authentication.
+
+Why It Matters: Ensures only verified users can access protected endpoints (e.g., bookings, payments). Prevents unauthorized access to accounts.
+
+2. Authorization (Role-Based Access Control - RBAC)
+Implementation: Restricts actions based on user roles (e.g., guests can book properties, hosts can manage listings).
+
+Why It Matters: Prevents privilege escalation (e.g., a guest modifying another user’s property).
+
+3. Rate Limiting
+Implementation: Limits API requests (e.g., 100 requests/minute) using tools like Redis.
+
+Why It Matters: Protects against brute-force attacks and DDoS attempts, ensuring system stability.
+
+4. Data Encryption
+Implementation:
+
+In Transit: HTTPS/TLS for all API communications.
+
+At Rest: Encrypts sensitive fields (e.g., passwords, payment details) in the database.
+
+Why It Matters: Prevents man-in-the-middle attacks and data breaches.
+
+5. Input Validation & Sanitization
+Implementation: Validates and sanitizes all user inputs (e.g., SQL injection prevention).
+
+Why It Matters: Blocks malicious payloads that could exploit vulnerabilities (e.g., XSS, SQLi).
+
+6. Secure Payment Processing
+Implementation: Uses PCI-compliant payment gateways (e.g., Stripe) with tokenization.
+
+Why It Matters: Ensures financial data is never stored directly, reducing fraud risk.
+
+7. CORS (Cross-Origin Resource Sharing) Policies
+Implementation: Restricts API access to trusted domains (e.g., frontend app URLs).
+
+Why It Matters: Prevents unauthorized domains from making requests to the backend.
+
+8. Audit Logging
+Implementation: Logs security-critical actions (e.g., login attempts, payment changes).
+
+Why It Matters: Helps trace breaches or suspicious activity for forensic analysis.
+
+Why Security is Crucial for Each Area
+Feature	Security Risk	Mitigation
+User Management	Account takeovers, data leaks.	JWT authentication, password hashing.
+Payments	Fraud, stolen credit card data.	PCI-compliant gateways, encryption.
+Property Listings	Unauthorized edits/deletes.	RBAC, ownership checks.
+Bookings	Fake reservations, overbooking.	Rate limiting, input validation.
+Reviews	Spam, fake ratings.	Rate limiting, user verification.
+Security is a non-negotiable priority to protect users, maintain trust, and comply with regulations (e.g., GDPR). Each measure addresses specific threats while ensuring seamless functionality.
+
 📈 Future Enhancements  
 - Real-time notifications (WebSockets)  
 - Advanced search & filtering (Elasticsearch)  
