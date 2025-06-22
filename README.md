@@ -134,7 +134,59 @@ Users
 │
 └── Bookings (One-to-Many)
 ```
+Feature Breakdown
+The Airbnb Clone backend includes core features that replicate the functionality of Airbnb while ensuring security, scalability, and performance. Below is a breakdown of each feature and its role in the project.
 
+1. User Management
+Handles user registration, authentication, and profile management.
+
+Allows users to sign up, log in, and update their profiles.
+
+Implements secure password hashing and role-based access (Host/Guest).
+
+2. Property Management
+Enables hosts to list, update, and manage rental properties.
+
+Supports property creation with details like title, description, price, and location.
+
+Allows filtering and searching for available properties.
+
+3. Booking System
+Manages property reservations and booking lifecycle.
+
+Guests can book properties with check-in/check-out dates.
+
+Hosts can confirm or reject bookings based on availability.
+
+4. Payment Processing
+Securely handles transactions for completed bookings.
+
+Integrates with payment gateways (e.g., Stripe, PayPal).
+
+Records payment status (Pending/Completed/Failed).
+
+5. Review System
+Allows guests to leave feedback on properties.
+
+Supports ratings (1-5 stars) and written reviews.
+
+Helps hosts improve and builds trust in the platform.
+
+6. API Documentation (REST & GraphQL)
+Provides clear API specs for frontend and mobile integration.
+
+OpenAPI docs for REST endpoints.
+
+GraphQL for flexible querying of properties, bookings, and reviews.
+
+7. Database Optimization
+Ensures fast query performance and scalability.
+
+Uses indexing for frequent searches (e.g., property listings).
+
+Implements Redis caching to reduce database load.
+
+Each feature is designed to work seamlessly together, delivering a smooth experience for both guests and hosts.
 
 📈 Future Enhancements  
 - Real-time notifications (WebSockets)  
