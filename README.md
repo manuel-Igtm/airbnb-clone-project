@@ -21,7 +21,7 @@ The Airbnb Clone backend provides a **scalable and secure** foundation for manag
 6. **Reviews & Ratings** (Post, Edit, Delete)  
 7. **Performance Optimizations** (Caching, DB Indexing)  
 
-⚙️ Tech Stack 
+⚙️ Technology Stack 
 - **Backend**: Django (Python) + Django REST Framework  
 - **Database**: PostgreSQL (Relational DB)  
 - **API Flexibility**: REST + GraphQL  
