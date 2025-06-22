@@ -42,6 +42,100 @@ The Airbnb Clone backend provides a **scalable and secure** foundation for manag
 - **Payments**: `/payments/` (Process transactions)  
 - **Reviews**: `/reviews/`, `/reviews/{id}/` (CRUD)  
 
+# **Database Design**  
+
+The database for the Airbnb Clone project is designed to efficiently manage users, properties, bookings, payments, and reviews. Below is an overview of the key entities, their fields, and relationships.  
+
+## **Entities & Relationships**  
+
+### **1. Users**  
+Stores user account information for hosts and guests.  
+
+**Fields:**  
+- `id` (Primary Key)  
+- `username` (Unique)  
+- `email` (Unique)  
+- `password` (Hashed)  
+- `role` (Host/Guest)  
+
+**Relationships:**  
+- A **User** can own multiple **Properties** (One-to-Many).  
+- A **User** can have multiple **Bookings** (One-to-Many).  
+- A **User** can write multiple **Reviews** (One-to-Many).  
+
+### **2. Properties**  
+Stores property listings posted by hosts.  
+
+**Fields:**  
+- `id` (Primary Key)  
+- `title` (Property name)  
+- `description`  
+- `price_per_night`  
+- `location` (City, Country)  
+- `host_id` (Foreign Key → **Users**)  
+
+**Relationships:**  
+- A **Property** belongs to a **User** (Many-to-One).  
+- A **Property** can have multiple **Bookings** (One-to-Many).  
+- A **Property** can have multiple **Reviews** (One-to-Many).  
+
+### **3. Bookings**  
+Manages reservations made by guests.  
+
+**Fields:**  
+- `id` (Primary Key)  
+- `guest_id` (Foreign Key → **Users**)  
+- `property_id` (Foreign Key → **Properties**)  
+- `check_in_date`  
+- `check_out_date`  
+- `total_price`  
+
+**Relationships:**  
+- A **Booking** belongs to a **User** (Guest).  
+- A **Booking** belongs to a **Property**.  
+- A **Booking** can have one **Payment** (One-to-One).  
+
+### **4. Payments**  
+Handles transaction records for bookings.  
+
+**Fields:**  
+- `id` (Primary Key)  
+- `booking_id` (Foreign Key → **Bookings**)  
+- `amount`  
+- `payment_method` (Credit Card, PayPal, etc.)  
+- `status` (Pending/Completed/Failed)  
+
+**Relationships:**  
+- A **Payment** is linked to a **Booking** (One-to-One).  
+
+### **5. Reviews**  
+Stores feedback and ratings for properties.  
+
+**Fields:**  
+- `id` (Primary Key)  
+- `property_id` (Foreign Key → **Properties**)  
+- `guest_id` (Foreign Key → **Users**)  
+- `rating` (1-5)  
+- `comment`  
+
+**Relationships:**  
+- A **Review** belongs to a **Property**.  
+- A **Review** is written by a **User** (Guest).  
+
+## **Database Schema Diagram (Conceptual)**  
+
+```plaintext
+Users
+│
+├── Properties (One-to-Many)
+│   ├── Bookings (One-to-Many)
+│   │   └── Payments (One-to-One)
+│   └── Reviews (One-to-Many)
+│
+└── Bookings (One-to-Many)
+```
+
+
 📈 Future Enhancements  
 - Real-time notifications (WebSockets)  
 - Advanced search & filtering (Elasticsearch)  
